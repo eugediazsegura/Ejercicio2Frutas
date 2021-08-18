@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+    const frutasEnStock = ["banana", "manzana", "sandia", "naranja", "mandarina"];
+    const frutasSinStock = ["frutilla", "durazno", "uva"];
+
+    //Creo el componente
+
+    function ComponenteFrutas(props) {
+        return (
+            <ul>
+                {props.frutas.map( fruta => <li>{fruta}</li>)} 
+            </ul>
+        )
+        
+    }
+
+    ReactDOM.render(
+        <div>
+            <h1>La verdulería</h1>
+            <h2>Listado de Frutas en Stock</h2>
+            <ComponenteFrutas frutas={frutasEnStock} />
+            <h1>Productos no disponibles</h1>
+            <ComponenteFrutas frutas = {frutasSinStock} />
+        </div>,
+        document.getElementById("root")
+    )
+
+    
+    </script>
+
+
+</body>
+</html>
